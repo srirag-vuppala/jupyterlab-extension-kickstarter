@@ -27,6 +27,7 @@ read -p "Enter in a number between 1 - 4 : " TYPE_NUM
 if [[ $TYPE_NUM == 1 ]]; then
    echo "Making a TypeScript based extension ..."
    cookiecutter https://github.com/jupyterlab/extension-cookiecutter-ts
+
 fi
 
 if [[ $TYPE_NUM == 2 ]]; then
