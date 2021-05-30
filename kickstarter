@@ -2,7 +2,7 @@
 # Use - Script to kickstart your jupyter extension development
 # Auth - Srirag Vuppala
 
-read -p "Enter in extension name : " EXTENSION_NAME
+read -p "Enter in jupyter extension name : " EXTENSION_NAME 
 read -p "Enter in conda environment name : " CONDA_NAME
 
 # Making the environment
@@ -27,7 +27,6 @@ read -p "Enter in a number between 1 - 4 : " TYPE_NUM
 if [[ $TYPE_NUM == 1 ]]; then
    echo "Making a TypeScript based extension ..."
    cookiecutter https://github.com/jupyterlab/extension-cookiecutter-ts
-
 fi
 
 if [[ $TYPE_NUM == 2 ]]; then
@@ -44,3 +43,22 @@ if [[ $TYPE_NUM == 4 ]]; then
    echo "Making a TypeScript based extension ..."
    cookiecutter https://github.com/jupyterlab/theme-cookiecutter
 fi
+
+cd ${EXTENSION_NAME}
+
+# Commits what you have so far 
+echo "Committing to git ..."
+git init
+git add .
+git commit -m "Seed ${EXTENSION_NAME} project from cookiecutter"
+echo "Finished commiting to git"
+
+# Install the core dependencies then create symlink to for making automatic changes
+echo "Installing the core dependencies ..."
+nohup pip install -ve .
+echo "Creating a Symlink for automatic changes ..."
+nohup jupyter labextension develop --overwrite .
+
+conda activate ${CONDA_NAME}
+echo "Start JupyterLab ..."
+jupyter lab
