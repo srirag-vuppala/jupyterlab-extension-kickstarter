@@ -1,0 +1,45 @@
+#! /bin/bash
+# Use - Script to kickstart your jupyter extension development
+# Auth - Srirag Vuppala
+
+read -p "Enter in extension name : " EXTENSION_NAME
+read -p "Enter in conda environment name : " CONDA_NAME
+
+# Making the environment
+conda create -n ${CONDA_NAME} --override-channels --strict-channel-priority -c conda-forge -c anaconda jupyterlab=3 cookiecutter nodejs jupyter-packaging git
+
+CONDA_BASE=$(conda info --base)
+
+source ${CONDA_BASE}/etc/profile.d/conda.sh
+
+conda activate ${CONDA_NAME} 
+
+# Initialize the project from a cookiecutter
+
+echo "Choose the type of cookiecutter extension you want to make"
+echo " [ 1 ] TypeScript based extension "
+echo " [ 2 ] JavaScript based extension "
+echo " [ 3 ] Mime - render based extension (TypeScript) "
+echo " [ 4 ] Theme based extension "
+
+read -p "Enter in a number between 1 - 4 : " TYPE_NUM 
+
+if [[ $TYPE_NUM == 1 ]]; then
+   echo "Making a TypeScript based extension ..."
+   cookiecutter https://github.com/jupyterlab/extension-cookiecutter-ts
+fi
+
+if [[ $TYPE_NUM == 2 ]]; then
+   echo "Making a JavaScript based extension ..."
+   cookiecutter https://github.com/jupyterlab/extension-cookiecutter-js
+fi
+
+if [[ $TYPE_NUM == 3 ]]; then
+   echo "Making a Mime - render based extension ..."
+   cookiecutter https://github.com/jupyterlab/mimerender-cookiecutter-ts
+fi
+
+if [[ $TYPE_NUM == 4 ]]; then
+   echo "Making a TypeScript based extension ..."
+   cookiecutter https://github.com/jupyterlab/theme-cookiecutter
+fi
