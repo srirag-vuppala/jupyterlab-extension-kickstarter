@@ -34,6 +34,6 @@ jlstarter
 Todo:
 ---
 - [x] Supress output for some commands
-- Implement with expect?
+- [ ] Implement with expect?
 
 
