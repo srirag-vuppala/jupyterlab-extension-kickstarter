@@ -46,6 +46,8 @@ fi
 
 cd ${EXTENSION_NAME}
 
+# REMOVE THE BOTTOM LINES IF YOU JUST WANT TO MAKE THE EXTENSION
+
 # Commits what you have so far 
 echo "Committing to git ..."
 git init
@@ -60,5 +62,6 @@ echo "Creating a Symlink for automatic changes ..."
 nohup jupyter labextension develop --overwrite .
 
 conda activate ${CONDA_NAME}
+
 echo "Start JupyterLab ..."
 jupyter lab
