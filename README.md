@@ -7,8 +7,8 @@ A script to make jupyterlab extensions quicker.
 ### Installing
 * Download the shell script from this repository
 
-```
 * Change the file permission to become a executable 
+
 ```
 chmod +x jlstarter 
 ```
@@ -23,6 +23,7 @@ chmod +x jlstarter
 * To start
 ```
 jlstarter 
+```
 
 ## Help
 
