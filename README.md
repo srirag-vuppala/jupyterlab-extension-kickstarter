@@ -1,5 +1,5 @@
 # jupyterlab-extension-kickstarter
-A script to make jupyterlab extensions quicker.
+A script to make jupyterlab extensions quicker. [Tested on MacOS Catalina]
 
 
 ## Getting Started
