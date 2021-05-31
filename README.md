@@ -15,8 +15,8 @@ chmod +x jlstarter
 
 * Move it to your preferred folder for storing scripts.
 	* If you do not have a preferred folder / do not have sudoer permissions you can do this : 
-		1. export PATH=$PATH:$HOME/bin 
-		2. cp jlstarter $HOME/bin
+		1. `export PATH=$PATH:$HOME/bin `
+		2. `cp jlstarter $HOME/bin`
 
 ### Executing program
 
